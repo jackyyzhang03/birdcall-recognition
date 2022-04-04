@@ -1,68 +1,59 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css?family=Nunito Sans"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="static/index.css"
-      media="screen"
-    />
-    <link rel="shortcut icon" href="#" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-    <script defer src="static/index.js"></script>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
-    <title>Birdcall Recognition</title>
-  </head>
+<html lang="en">
 
-  <body>
-    <main>
-      <div class="header container">
-        <h1>Birdcall Recognition</h1>
-        <p>
-          This model recognizes
-          <span class="tooltip">
-            20 different species.
-            <span class="tooltip-text">
-              The American crow, American robin, barn swallow, Bewick's wren,
-              blue jay, Carolina wren, northern raven, common yellowthroat,
-              house sparrow, house wren, mallard, marsh wren, northern cardinal,
-              northern mockingbird, red crossbill, red-winged blackbird, song
-              sparrow, spotted towhee, Swainson's thrush, and the western
-              meadowlark.
-            </span>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Nunito Sans" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="static/index.css" media="screen" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+  <script defer src="static/index.js"></script>
+  <meta name="viewport" content="initial-scale=1" />
+  <meta name="description"
+    content="Predicts birdcalls for over twenty different species, including the American crow, American robin, barn swallow, Bewick's wren, blue jay, Carolina wren, northern raven, common yellowthroat, house sparrow, house wren, mallard, marsh wren, northern cardinal, northern mockingbird, red crossbill, red-winged blackbird, song sparrow, spotted towhee, Swainson's thrush, and the western meadowlark." />
+  <title>Birdcall Recognition</title>
+</head>
+
+<body>
+  <main>
+    <div class="header container">
+      <h1>Birdcall Recognition</h1>
+      <p>
+        This model recognizes
+        <span class="tooltip">
+          20 different species.
+          <span class="tooltip-text">
+            The American crow, American robin, barn swallow, Bewick's wren,
+            blue jay, Carolina wren, northern raven, common yellowthroat,
+            house sparrow, house wren, mallard, marsh wren, northern cardinal,
+            northern mockingbird, red crossbill, red-winged blackbird, song
+            sparrow, spotted towhee, Swainson's thrush, and the western
+            meadowlark.
           </span>
-        </p>
+        </span>
+      </p>
+    </div>
+    <div class="container bottom-border">
+      <div class="input container">
+        <input readonly aria-hidden="true" id="file-name" />
+        <div id="select" onclick="selectFile()">Upload</div>
+        <input id="audio" type="file" accept="audio/wav, audio/mpeg, audio/flac, audio/ogg, audio/vorbis, audio/opus"
+          class="upload" />
       </div>
-      <div class="container bottom-border">
-        <div class="input container">
-          <input readonly id="file-name" />
-          <div id="select" onclick="selectFile()">Upload</div>
-          <input
-            id="audio"
-            type="file"
-            accept="audio/wav, audio/mpeg, audio/flac, audio/ogg, audio/vorbis, audio/opus"
-            class="upload"
-          />
-        </div>
-        <p>
-          *Note: Accuracy is reduced for recordings shorter than 10 seconds in
-          length.
-        </p>
-      </div>
-      <h2 id="prediction" class="hidden">Prediction:</h2>
-      <div id="spinner" class="lds-ellipsis">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <div id="chart-container">
-        <canvas id="chart"></canvas>
-      </div>
-    </main>
-  </body>
+      <p>
+        *Note: Accuracy is reduced for recordings shorter than 10 seconds in
+        length.
+      </p>
+    </div>
+    <h2 id="prediction" class="hidden">Prediction:</h2>
+    <div id="spinner" class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="chart-container">
+      <canvas id="chart"></canvas>
+    </div>
+  </main>
+</body>
+
 </html>
