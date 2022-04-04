@@ -4,9 +4,11 @@ from efficientnet_pytorch import EfficientNet
 
 class Predictor:
     def __init__(self, state_path):
+        torch.set_num_threads(1)
         model = EfficientNet.from_name('efficientnet-b7', num_classes=20)
         model.load_state_dict(torch.load(
             state_path, map_location=torch.device('cpu')))
+        model.share_memory()
         model.eval()
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.model = model.to(device)
