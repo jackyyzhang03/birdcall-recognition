@@ -3,4 +3,4 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 COPY . .
-CMD gunicorn -w 3 -b 0.0.0.0:$PORT app:app --preload
+CMD gunicorn -w 1 -b 0.0.0.0:$PORT app:app
