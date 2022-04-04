@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify, make_response
 from predictor import Predictor
 from audio_utils import AudioUtils
+import os
 
 predictor = Predictor('weights.pt')
 app = Flask(__name__)
@@ -21,4 +22,5 @@ def predict():
     return response
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='localhost', port='8080')
