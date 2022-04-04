@@ -14,22 +14,22 @@
     <link rel="shortcut icon" href="#" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
     <script defer src="static/index.js"></script>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>Birdsong Recognition</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1" />
+    <title>Birdcall Recognition</title>
   </head>
 
   <body>
     <main>
       <div class="header container">
-        <h1>Birdsong Recognition</h1>
+        <h1>Birdcall Recognition</h1>
         <p>
           This model recognizes
           <span class="tooltip">
             20 different species.
             <span class="tooltip-text">
-              The American crow, American robin, barn swallow, Bewick's wren, blue
-              jay, Carolina wren, northern raven, common yellowthroat, house
-              sparrow, house wren, mallard, marsh wren, northern cardinal,
+              The American crow, American robin, barn swallow, Bewick's wren,
+              blue jay, Carolina wren, northern raven, common yellowthroat,
+              house sparrow, house wren, mallard, marsh wren, northern cardinal,
               northern mockingbird, red crossbill, red-winged blackbird, song
               sparrow, spotted towhee, Swainson's thrush, and the western
               meadowlark.
@@ -53,7 +53,13 @@
           length.
         </p>
       </div>
-      <h2 id="prediction" class="hidden">Prediction:</h2><div id="spinner" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+      <h2 id="prediction" class="hidden">Prediction:</h2>
+      <div id="spinner" class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div id="chart-container">
         <canvas id="chart"></canvas>
       </div>

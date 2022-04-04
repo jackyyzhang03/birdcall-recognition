@@ -17,11 +17,12 @@ def predict():
     file = request.files['audio']
     spectrogram = AudioUtils.get_spectrogram(file)
     prediction, probabilities = predictor.predict(spectrogram)
-    response = make_response(jsonify({'prediction': prediction, 'probabilities': probabilities}))
+    response = make_response(
+        jsonify({'prediction': prediction, 'probabilities': probabilities}))
     response.headers["Content-Type"] = "application/json"
     return response
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8000))
     app.run(host="localhost", port=port)
-    
