@@ -2,7 +2,7 @@ const submitAudio = async () => {
   const audio = document.getElementById("audio").files[0];
   const data = new FormData();
   data.append("audio", audio);
-  const response = await fetch("http://localhost:8080", {
+  const response = await fetch("/", {
     method: "POST",
     body: data,
   });
