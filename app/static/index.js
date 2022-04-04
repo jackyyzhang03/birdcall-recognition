@@ -1,7 +1,9 @@
 const submitAudio = async () => {
   const audio = document.getElementById("audio").files[0];
+  if (!audio) return;
   const data = new FormData();
   data.append("audio", audio);
+  await setLoading();
   const response = await fetch("/", {
     method: "POST",
     body: data,
@@ -13,14 +15,28 @@ const submitAudio = async () => {
   }
 };
 
+const sleep = (ms) => {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
+
+const setLoading = async () => {
+  const field = document.getElementById("prediction");
+  const spinner = document.getElementById("spinner");
+  field.className = "hidden";
+  await sleep(600);
+  spinner.style.opacity = 1;
+};
+
 const updateResults = (results) => {
   chart.data.datasets[0].data = results.probabilities;
   chart.update();
-  const prediction = document.getElementById("prediction");
-  prediction.className = "hidden";
+
+  const field = document.getElementById("prediction");
+  const spinner = document.getElementById("spinner");
+  spinner.style.opacity = 0;
   setTimeout(() => {
-    prediction.innerText = "Prediction: " + results.prediction;
-    prediction.className = results.prediction ? "visible" : "hidden";
+    field.innerText = "Prediction: " + results.prediction;
+    field.className = results.prediction ? "visible" : "hidden";
   }, 600);
 };
 
@@ -120,7 +136,7 @@ const chart = new Chart(ctx, {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
-      duration: 1200,
+      duration: 1800,
       easing: "easeOutQuint",
     },
     plugins: {
