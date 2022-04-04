@@ -1,6 +1,6 @@
 # Birdcall Recognition
 
-Final project of McGill AI Society Intro to ML Bootcamp (Winter 2022).
+Final project of McGill AI Society Intro to ML Bootcamp (Winter 2022). [Demo hosted on Heroku](https://birdsong-recognition.herokuapp.com/).
 
 ## Project Description
 
@@ -46,7 +46,7 @@ Navigate to [http://0.0.0.0:8000](http://0.0.0.0:8000) to view the application.
 
 ## Repository Organization
 
-This model contains the source code used to train the model and build the web application.
+This repository contains the source code used to train the model and build the web application.
 
 - `app/` - The source code for the web application
   - `static/` - Static CSS and JavaScript files
