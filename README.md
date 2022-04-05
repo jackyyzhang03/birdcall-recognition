@@ -42,7 +42,8 @@ py -m pip install -r requirements.txt
 waitress-serve app:app
 ```
 
-Navigate to [http://0.0.0.0:8080](http://0.0.0.0:8080) or [http://localhost:8080](http://localhost:8080) to view the application.
+To use the Flask development server, instead of `waitress-serve app:app`, run `python3 app.py` on Linux/Unix/MacOS, or `py app.py` on Windows.
+Using a web browser, navigate to [http://localhost:8080](http://localhost:8080) to view the application.
 
 ## Repository Organization
 
