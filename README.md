@@ -19,7 +19,7 @@ docker build -t birdcall-recognition .
 
 Start the app container with
 ```
-docker run -dp 8000:8000 birdcall-recognition -e PORT="8000"
+docker run -dp 8080:8080 birdcall-recognition -e PORT="8080"
 ```
 
 ### Without Docker
@@ -31,7 +31,7 @@ Using a terminal, navigate to the `/app` subdirectory and run
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
-waitress-serve --listen=0.0.0.0:8000 app:app
+waitress-serve app:app
 ```
 
 #### On Windows
@@ -39,10 +39,10 @@ waitress-serve --listen=0.0.0.0:8000 app:app
 py -m venv .venv
 .\.venv\Scripts\activate
 py -m pip install -r requirements.txt
-waitress-serve --listen=0.0.0.0:8000 app:app
+waitress-serve app:app
 ```
 
-Navigate to [http://0.0.0.0:8000](http://0.0.0.0:8000) to view the application.
+Navigate to [http://0.0.0.0:8080](http://0.0.0.0:8080) or [http://localhost:8080](http://localhost:8080) to view the application.
 
 ## Repository Organization
 
